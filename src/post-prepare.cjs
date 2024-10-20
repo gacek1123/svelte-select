@@ -1,6 +1,6 @@
-const { rm } = require('fs/promises');
+const { rm } = require("fs/promises");
 const path = require("path");
 
 (async () => {
-    await rm(path.join(__dirname, '/lib/no-styles/'), { recursive: true });
+  await rm(path.join(__dirname, "/lib/no-styles/"), { recursive: true });
 })();

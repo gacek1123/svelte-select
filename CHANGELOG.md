@@ -1,5 +1,10 @@
 # svelte-select changelog
 
+## 5.8.4
+* switch to pnpm
+* update dependencies
+* change bundling process
+
 ## 5.8.3
 
 * #651 Fixed: unknown extension .svelte (thanks to @happysalada)

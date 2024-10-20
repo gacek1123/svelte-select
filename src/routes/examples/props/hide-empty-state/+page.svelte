@@ -1,8 +1,7 @@
 <script>
-    import Select from '$lib/Select.svelte';
+  import Select from "$lib/Select.svelte";
 
-    let items = ['One', 'Two', 'Three'];
+  let items = ["One", "Two", "Three"];
 </script>
 
 <Select {items} hideEmptyState />
-

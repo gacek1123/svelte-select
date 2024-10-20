@@ -1,15 +1,15 @@
 <script>
-    import Select from '$lib/Select.svelte';
+  import Select from "$lib/Select.svelte";
 
-    let collection = [
-        { value: 'one', foo: 'One' },
-        { value: 'two', foo: 'Two' },
-        { value: 'three', foo: 'Three' },
-    ];
+  let collection = [
+    { value: "one", foo: "One" },
+    { value: "two", foo: "Two" },
+    { value: "three", foo: "Three" },
+  ];
 
-    let value;
+  let value;
 </script>
 
 <Select items={collection} label="foo" bind:value />
 
-<p>value: {value?.['foo']}</p>
+<p>value: {value?.["foo"]}</p>

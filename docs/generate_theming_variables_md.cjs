@@ -7,25 +7,26 @@ const VARIABLE_USAGE_PATTERN = "var\\(--([A-Za-z\\-_]*)";
 const SOURCE_FOLDER = path.join(__dirname, "..", "src/lib");
 
 const DOC_FILE_PATH = path.join(__dirname, "theming_variables.md");
-const VARIABLE_SECTION_PATTERN = /(<!-- List start -->)(.|\n)*(<!-- List end -->)/gm;
+const VARIABLE_SECTION_PATTERN =
+  /(<!-- List start -->)(.|\n)*(<!-- List end -->)/gm;
 
 (async () => {
   const searchResults = await find(
     VARIABLE_USAGE_PATTERN,
     SOURCE_FOLDER,
-    ".svelte"
+    ".svelte",
   );
   const justTheMatchedParts = Object.keys(searchResults).reduce(
     (accumulator, nextKey) => [
       ...accumulator,
-      ...searchResults[nextKey].matches
+      ...searchResults[nextKey].matches,
     ],
-    []
+    [],
   );
   const uniqueMatches = [...new Set(justTheMatchedParts).values()];
   uniqueMatches.sort();
-  const matchesAsMarkdownListItems = uniqueMatches.map(b =>
-    b.replace(/var\((--[A-Za-z\-_]*)/, "- `$1`")
+  const matchesAsMarkdownListItems = uniqueMatches.map((b) =>
+    b.replace(/var\((--[A-Za-z\-_]*)/, "- `$1`"),
   );
 
   const START_TAG_CAPTURE_GROUP = "$1";
@@ -33,7 +34,7 @@ const VARIABLE_SECTION_PATTERN = /(<!-- List start -->)(.|\n)*(<!-- List end -->
   const newDependencySectionAsRegexReplaceExpression = [
     START_TAG_CAPTURE_GROUP,
     ...matchesAsMarkdownListItems,
-    END_TAG_CAPTURE_GROUP
+    END_TAG_CAPTURE_GROUP,
   ].join("\n");
   const oldContent = fs.readFileSync(DOC_FILE_PATH).toString();
   const oldFileDoesNotContainSection =
@@ -46,8 +47,8 @@ const VARIABLE_SECTION_PATTERN = /(<!-- List start -->)(.|\n)*(<!-- List end -->
     DOC_FILE_PATH,
     oldContent.replace(
       VARIABLE_SECTION_PATTERN,
-      newDependencySectionAsRegexReplaceExpression
-    )
+      newDependencySectionAsRegexReplaceExpression,
+    ),
   );
   console.log(`Successfully wrote to ${DOC_FILE_PATH}`);
 })();

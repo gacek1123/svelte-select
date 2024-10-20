@@ -4,7 +4,7 @@ node_modules
 /test/public/tests.css
 /test/public/assets
 /spec/page/public/build
-/.svelte-kit
-/package
+.svelte-kit
+dist
 /src/lib/no-styles
 .env

@@ -1,21 +1,21 @@
 <script>
-    import Select from '$lib/Select.svelte';
+  import Select from "$lib/Select.svelte";
 
-    let items = [
-        { value: 'one', label: 'One' },
-        { value: 'two', label: 'Two' },
-        { value: 'three', label: 'Three' },
-    ];
+  let items = [
+    { value: "one", label: "One" },
+    { value: "two", label: "Two" },
+    { value: "three", label: "Three" },
+  ];
 </script>
 
 <div>
-    <Select {items} listAutoWidth={false} />
+  <Select {items} listAutoWidth={false} />
 
-    <Select {items} listAutoWidth={true} />
+  <Select {items} listAutoWidth={true} />
 </div>
 
 <style>
-    div {
-        display: flex;
-    }
+  div {
+    display: flex;
+  }
 </style>
