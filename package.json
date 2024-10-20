@@ -1,6 +1,6 @@
 {
   "name": "svelte-select",
-  "version": "5.8.3",
+  "version": "5.8.4",
   "type": "module",
   "license": "ISC",
   "description": "A <Select> component for Svelte apps",

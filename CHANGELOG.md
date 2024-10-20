@@ -1,6 +1,7 @@
 # svelte-select changelog
 
 ## 5.8.4
+
 * switch to pnpm
 * update dependencies
 * change bundling process
